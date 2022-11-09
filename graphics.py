@@ -8,7 +8,7 @@ class Point():
     
 
 class Line():
-    def __init__(self, point1, point2) -> None:
+    def __init__(self, point1: Point, point2: Point) -> None:
         self.point1 = point1
         self.point2 = point2
     
@@ -26,7 +26,7 @@ class Window:
         self.__root.title("Maze Solver")
         self.__root.protocol("WM_DELETE_WINDOW", self.close)
         # Create a canvas and pack it
-        self.__canvas = Canvas(self.__root, bg="white", height=height, width=width)
+        self.__canvas = Canvas(self.__root, bg="black", height=height, width=width)
         self.__canvas.pack(fill=BOTH, expand=1)
         self.__running = False
         
@@ -44,7 +44,5 @@ class Window:
     def close(self):
         self.__running = False
     
-    def draw_line(self, line: Line, fill_color: str):
+    def draw_line(self, line: Line, fill_color: str = "white"):
         line.draw(self.__canvas, fill_color)
-
-    
